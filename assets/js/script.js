@@ -36,9 +36,27 @@ function runGame(gameType) {
         throw `Unkown game type: ${gameType}. Aborting!`;
     }
 
+    
+
 }
 
+/**
+ * Checks the answer against the first element in
+ * the returned calculatCorrectAnswer array
+ */
 function checkAnswer() {
+
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) {
+        alert("Hey! You got it right! :D");
+    } else {
+        alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`)
+    }
+
+    runGame(calculatedAnswer[1]);
     
 }
 
@@ -47,8 +65,8 @@ function checkAnswer() {
  * directly from the dom, and returns the correct answer.
  */
 function calculateCorrectAnswer() {
-    let operand1 = parsent(document.getElementById('operand1').innerText)
-    let operand2 = parsent(document.getElementById('operand2').innerText)
+    let operand1 = parseInt(document.getElementById('operand1').innerText)
+    let operand2 = parseInt(document.getElementById('operand2').innerText)
     let operator = document.getElementById('operator').innerText
 
     if (operator === "+") {
