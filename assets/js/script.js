@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         });
     }
-    
+    // here we do this code to help us press enter button
     document.getElementById("answer-box").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             checkAnswer();
